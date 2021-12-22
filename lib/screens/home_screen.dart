@@ -1,3 +1,4 @@
+import 'package:coffee_shop/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -7,13 +8,16 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("coffee shop"),
-        // backgroundColor: ThemeData.,
+        title: Text(
+          "coffee shop",
+        ),
       ),
       body: Center(
-        child: Text("Coffeee Shop"),
+        child: Text(
+          "Coffeee Shop",
+        ),
       ),
-      drawer: Drawer(),
+      drawer: MyDrawer(),
     );
   }
 }
