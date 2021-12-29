@@ -2,7 +2,7 @@ import 'package:coffee_shop/provider/login.dart';
 import 'package:coffee_shop/utils/page_routes.dart';
 import 'package:coffee_shop/widgets/themes.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 import '../screens/home_screen.dart';
 
 void main() {

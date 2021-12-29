@@ -1,5 +1,5 @@
 class CatalogModel {
-  static final items = [
+  static List<Item> items = [
     Item(
       id: 1,
       title: "Americano",
@@ -23,11 +23,35 @@ class Item {
 
   Item({
     this.id = 1,
-    this.title = "Americano",
-    this.desc = "Amaricano Desc",
+    this.title = "default title",
+    this.desc = "default description",
     this.price = 120,
-    this.size = "Regular",
+    this.size = "Default Regular",
     this.image =
         "https://images.unsplash.com/photo-1580661869408-55ab23f2ca6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80",
   });
+
+  //mapping json data with the help of named constructor
+  //constructor para(frontend) <- map (backend)
+  factory Item.fromMap(Map<String, dynamic> map) {
+    return Item(
+      id: map["id"],
+      title: map["title"],
+      desc: map["desc"],
+      price: map["price"],
+      size: map["size"],
+      image: map["image"],
+    );
+  }
+
+  //encode
+  // class to map (frontend -> backend)
+  toMap() => {
+        "id": id,
+        "title": title,
+        "desc": desc,
+        "price": price,
+        "size": size,
+        "image": image,
+      };
 }
