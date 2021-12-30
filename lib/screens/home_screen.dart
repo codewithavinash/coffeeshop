@@ -1,9 +1,11 @@
 import 'package:coffee_shop/models/catalog.dart';
 import 'package:coffee_shop/widgets/drawer.dart';
-import 'package:coffee_shop/widgets/item_widget.dart';
+// import 'package:coffee_shop/widgets/item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; //rootbundle (loading json file)
-import 'dart:convert'; //json decoding
+import 'dart:convert';
+
+import 'package:google_fonts/google_fonts.dart'; //json decoding
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -41,11 +43,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     // final dummyList = List.generate(11, (index) => CatalogModel.items[0]);
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "coffee shop",
-        ),
-      ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
@@ -58,47 +55,140 @@ class _HomeScreenState extends State<HomeScreen> {
             //       );
             //     },
             //   )
-            GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 16,
-                  crossAxisSpacing: 16,
-                ),
-                itemCount: CatalogModel.items.length,
-                itemBuilder: (context, index) {
-                  final item = CatalogModel.items[index];
-                  return Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    clipBehavior: Clip.antiAlias,
-                    child: GridTile(
-                      header: Container(
-                        padding: const EdgeInsets.all(12),
-                        decoration: BoxDecoration(color: Colors.deepPurple),
-                        child: Text(
-                          item.title,
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
-                      child: Image.network(item.image),
-                      footer: Container(
-                        padding: const EdgeInsets.all(12),
-                        decoration: BoxDecoration(color: Colors.deepPurple),
-                        child: Text(
-                          item.price.toString(),
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
-                    ),
-                  );
-                },
-              )
+            SafeArea(top: true, bottom: false, child: ItemsGridView())
             : Center(
                 child: CircularProgressIndicator(),
               ),
       ),
       drawer: MyDrawer(),
+    );
+  }
+}
+
+class ItemsGridView extends StatelessWidget {
+  const ItemsGridView({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        mainAxisSpacing: 16,
+        crossAxisSpacing: 11,
+        mainAxisExtent: 241,
+      ),
+      itemCount: CatalogModel.items.length,
+      itemBuilder: (context, index) {
+        final item = CatalogModel.items[index];
+        return Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          clipBehavior: Clip.antiAlias,
+          child: GridTile(
+            child: Container(
+              padding: EdgeInsets.fromLTRB(2, 2, 2, 51),
+              margin: EdgeInsets.fromLTRB(5, 2, 5, 25),
+              child: Image.network(
+                item.image,
+                fit: BoxFit.cover,
+              ),
+            ),
+            footer: Container(
+              padding: EdgeInsets.fromLTRB(7, 0, 0, 0),
+              width: 200,
+              height: 92,
+              decoration: BoxDecoration(
+                color: Colors.teal.shade50,
+              ),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      item.title,
+                      style: TextStyle(
+                        color: Colors.brown.shade700,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 2,
+                  ),
+                  Stack(
+                    children: [
+                      // title
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 0, 2, 0),
+                        child: Text(
+                          "${item.desc.substring(0, 34)}..",
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontFamily: "assets/fonts/Lato-Regular.ttf",
+                            color: Colors.brown.shade700,
+                          ),
+                        ),
+                      ),
+                      //Rs. symbol
+                      Positioned(
+                        top: 30,
+                        left: 0,
+                        child: Container(
+                          child: Text(
+                            "\u{20B9}",
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontFamily: "assets/fonts/Lato-Regular.ttf",
+                              color: Colors.brown.shade700,
+                            ),
+                          ),
+                        ),
+                      ),
+                      //price text
+                      Positioned(
+                        top: 30,
+                        left: 12,
+                        child: Container(
+                          child: Text(
+                            "${item.price.toString()}",
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.brown.shade700,
+                            ),
+                          ),
+                        ),
+                      ),
+                      //icon button
+                      Align(
+                        heightFactor: 1.2,
+                        alignment: AlignmentDirectional(1.3, 1.7),
+                        child: MaterialButton(
+                          elevation: 0,
+                          onPressed: () {
+                            HapticFeedback.lightImpact();
+                          },
+                          color: Color.fromRGBO(0, 112, 74, 1),
+                          textColor: Colors.white,
+                          child: Icon(
+                            Icons.add,
+                            size: 27,
+                          ),
+                          padding: EdgeInsets.all(7),
+                          shape: CircleBorder(),
+                        ),
+                      )
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

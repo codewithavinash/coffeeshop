@@ -2,40 +2,40 @@
     "products": [
         {
             "id": 1,
-            "title": "iPhone 12 Pro",
-            "desc": "Apple iPhone 12th generation",
+            "title": "Caramel Frappuccino",
+            "desc": "Apple iPhone 12th generation Apple iPhone 12th generation Apple iPhone 12th generation ",
             "price": 999,
             "size": "#33505a",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRISJ6msIu4AU9_M9ZnJVQVFmfuhfyJjEtbUm3ZK11_8IV9TV25-1uM5wHjiFNwKy99w0mR5Hk&usqp=CAc"
+            "image": "https://www.pngall.com/wp-content/uploads/4/Starbucks-Cup-PNG.png"
         },
         {
             "id": 2,
-            "title": "Pixel 5",
-            "desc": "Google Pixel phone 5th generation",
+            "title": "Hazelnut Latte",
+            "desc": "Google Pixel phone 5th generation Apple iPhone 12th generation  Apple iPhone 12th generation ",
             "price": 699,
             "size": "#00ac51",
             "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd0JhwLvm_uLDLc-la7hK9WyVpe9naJFcebKfhcICiq2KtvXDePNAU_9QO06LPcQ0K0fLByc7m&usqp=CAc"
         },
         {
             "id": 3,
-            "title": "M1 Macbook Air",
-            "desc": "Apple Macbook air with apple silicon",
+            "title": "Espresso",
+            "desc": "Apple Macbook air with apple silicon Apple iPhone 12th generation  Apple iPhone 12th generation ",
             "price": 1099,
             "size": "#e0bfae",
             "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMOMstwtmLnjFb3NHiDJ_kcQnueNVH-rv_3ps96HZmXlFumKWaiBqq_L4Uoyx3iFiNTrXNEbyB&usqp=CAc"
         },
         {
             "id": 4,
-            "title": "Playstation 5",
-            "desc": "Sony Playstation 5th generation",
+            "title": "Iced Mocha",
+            "desc": "Sony Playstation 5th generation Apple iPhone 12th generation  Apple iPhone 12th generation ",
             "price": 500,
             "size": "#544ee4",
             "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMOMstwtmLnjFb3NHiDJ_kcQnueNVH-rv_3ps96HZmXlFumKWaiBqq_L4Uoyx3iFiNTrXNEbyB&usqp=CAc"
         },
         {
             "id": 5,
-            "title": "Airpods Pro",
-            "desc": "Apple Aipods Pro 1st generation",
+            "title": "Java Chip Frappe",
+            "desc": "Apple Aipods Pro 1st generation Apple iPhone 12th generation  Apple iPhone 12th generation ",
             "price": 200,
             "size": "#e3e4e9",
             "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQROEs084z65psoo06zYl5R0tUzywOVKVQZzmzqCj3PDP1vVJTWv3gGwGMFENSy4qV4n7sEQjE&usqp=CAc"
@@ -43,7 +43,7 @@
         {
             "id": 6,
             "title": "iPad Pro",
-            "desc": "Apple iPad Pro 2020 edition",
+            "desc": "Apple iPad Pro 2020 edition Apple iPhone 12th generation  Apple iPhone 12th generation ",
             "price": 799,
             "size": "#f73984",
             "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNzUeRQ5uH7E3hpECib8qxdhfHv6SnUGT7mOsew_xiOoqRR7ZpdH-TQ4J6-HuIEfqHimYyPXWH&usqp=CAc"
@@ -51,7 +51,7 @@
         {
             "id": 7,
             "title": "Galaxy S21 Ultra",
-            "desc": "Samsung Galaxy S21 Ultra 2021 edition",
+            "desc": "Samsung Galaxy S21 Ultra 2021 edition Apple iPhone 12th generation  Apple iPhone 12th generation ",
             "price": 1299,
             "size": "#1c1c1c",
             "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT_PZcc0wicVYR992s5QCIDLYy8t-z-9kibTUdWZBN2sd86aaqdAJfhvxAwZNWV9wfdzDikpr1&usqp=CAc"
@@ -59,7 +59,7 @@
         {
             "id": 8,
             "title": "Galaxy S21",
-            "desc": "Samsung Galaxy S21 2021 edition",
+            "desc": "Samsung Galaxy S21 2021 edition Apple iPhone 12th generation  Apple iPhone 12th generation ",
             "price": 899,
             "size": "#7c95eb",
             "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBNHd7FwarbxA1xdMFt24KazjcR4dWPH_t_T5dz4YNK1s7rJAQ8gOIuR_NRw6eeiQgFhbZ9sAN&usqp=CAc"

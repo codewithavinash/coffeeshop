@@ -10,7 +10,7 @@ class MyDrawer extends StatelessWidget {
         "https://static.wikia.nocookie.net/marvel_dc/images/4/4b/Batman_Vol_3_86_Textless.jpg";
     return Drawer(
       child: Container(
-        color: Colors.brown.shade800,
+        color: Color.fromRGBO(0, 112, 74, 1),
         child: ListView(
           children: [
             DrawerHeader(
@@ -18,7 +18,7 @@ class MyDrawer extends StatelessWidget {
               padding: EdgeInsets.zero,
               child: UserAccountsDrawerHeader(
                 decoration: BoxDecoration(
-                  color: Colors.brown.shade800,
+                  color: Color.fromRGBO(0, 112, 74, 1),
                 ),
                 accountName: Text("Avinash Thakur"),
                 accountEmail: Text("avinashthakur.edu@gmail.com"),
@@ -30,12 +30,12 @@ class MyDrawer extends StatelessWidget {
             ListTile(
               leading: Icon(
                 Icons.home,
-                color: Colors.brown.shade100,
+                color: Colors.white,
               ),
               title: Text(
                 "Home",
                 style: TextStyle(
-                  color: Colors.brown.shade100,
+                  color: Colors.white,
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
                 ),
@@ -44,12 +44,12 @@ class MyDrawer extends StatelessWidget {
             ListTile(
               leading: Icon(
                 Icons.home,
-                color: Colors.brown.shade100,
+                color: Colors.white,
               ),
               title: Text(
                 "Home",
                 style: TextStyle(
-                  color: Colors.brown.shade100,
+                  color: Colors.white,
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
                 ),
@@ -58,12 +58,12 @@ class MyDrawer extends StatelessWidget {
             ListTile(
               leading: Icon(
                 Icons.home,
-                color: Colors.brown.shade100,
+                color: Colors.white,
               ),
               title: Text(
                 "Home",
                 style: TextStyle(
-                  color: Colors.brown.shade100,
+                  color: Colors.white,
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
                 ),
