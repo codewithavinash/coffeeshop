@@ -10,7 +10,8 @@ class MyDrawer extends StatelessWidget {
         "https://static.wikia.nocookie.net/marvel_dc/images/4/4b/Batman_Vol_3_86_Textless.jpg";
     return Drawer(
       child: Container(
-        color: Color.fromRGBO(0, 112, 74, 1),
+        // color: Color.fromRGBO(0, 112, 74, 1),
+        color: Colors.teal.shade800,
         child: ListView(
           children: [
             DrawerHeader(
@@ -18,7 +19,8 @@ class MyDrawer extends StatelessWidget {
               padding: EdgeInsets.zero,
               child: UserAccountsDrawerHeader(
                 decoration: BoxDecoration(
-                  color: Color.fromRGBO(0, 112, 74, 1),
+                  // color: Color.fromRGBO(0, 112, 74, 1),
+                  color: Colors.teal.shade800,
                 ),
                 accountName: Text("Avinash Thakur"),
                 accountEmail: Text("avinashthakur.edu@gmail.com"),

@@ -1,4 +1,6 @@
 import 'package:coffee_shop/models/catalog.dart';
+import 'package:coffee_shop/screens/product_detail.dart';
+import 'package:coffee_shop/utils/page_routes.dart';
 import 'package:coffee_shop/widgets/drawer.dart';
 // import 'package:coffee_shop/widgets/item_widget.dart';
 import 'package:flutter/material.dart';
@@ -80,110 +82,128 @@ class ItemsGridView extends StatelessWidget {
       itemCount: CatalogModel.items.length,
       itemBuilder: (context, index) {
         final item = CatalogModel.items[index];
-        return Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
-          clipBehavior: Clip.antiAlias,
-          child: GridTile(
-            child: Container(
-              padding: EdgeInsets.fromLTRB(2, 2, 2, 51),
-              margin: EdgeInsets.fromLTRB(5, 2, 5, 25),
-              child: Image.network(
-                item.image,
-                fit: BoxFit.cover,
-              ),
+        return InkWell(
+          onTap: () {},
+          splashColor: Colors.teal,
+          child: Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
             ),
-            footer: Container(
-              padding: EdgeInsets.fromLTRB(7, 0, 0, 0),
-              width: 200,
-              height: 92,
-              decoration: BoxDecoration(
-                color: Colors.teal.shade50,
-              ),
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      item.title,
-                      style: TextStyle(
-                        color: Colors.brown.shade700,
-                        fontWeight: FontWeight.bold,
-                      ),
+            clipBehavior: Clip.antiAlias,
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ProductDetailScreen(item: item)));
+              },
+              splashColor: Colors.teal,
+              child: GridTile(
+                child: Container(
+                  padding: EdgeInsets.fromLTRB(2, 2, 2, 51),
+                  margin: EdgeInsets.fromLTRB(5, 2, 5, 25),
+                  child: Hero(
+                    tag: item.id.toString(),
+                    child: Image.network(
+                      item.image,
+                      fit: BoxFit.cover,
                     ),
                   ),
-                  SizedBox(
-                    height: 2,
+                ),
+                footer: Container(
+                  padding: EdgeInsets.fromLTRB(7, 0, 0, 0),
+                  width: 200,
+                  height: 92,
+                  decoration: BoxDecoration(
+                    color: Colors.teal.shade50,
                   ),
-                  Stack(
+                  child: Column(
                     children: [
-                      // title
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 0, 2, 0),
-                        child: Text(
-                          "${item.desc.substring(0, 34)}..",
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontFamily: "assets/fonts/Lato-Regular.ttf",
-                            color: Colors.brown.shade700,
-                          ),
-                        ),
+                      SizedBox(
+                        height: 5,
                       ),
-                      //Rs. symbol
-                      Positioned(
-                        top: 30,
-                        left: 0,
-                        child: Container(
-                          child: Text(
-                            "\u{20B9}",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontFamily: "assets/fonts/Lato-Regular.ttf",
-                              color: Colors.brown.shade700,
-                            ),
-                          ),
-                        ),
-                      ),
-                      //price text
-                      Positioned(
-                        top: 30,
-                        left: 12,
-                        child: Container(
-                          child: Text(
-                            "${item.price.toString()}",
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.brown.shade700,
-                            ),
-                          ),
-                        ),
-                      ),
-                      //icon button
                       Align(
-                        heightFactor: 1.2,
-                        alignment: AlignmentDirectional(1.3, 1.7),
-                        child: MaterialButton(
-                          elevation: 0,
-                          onPressed: () {
-                            HapticFeedback.lightImpact();
-                          },
-                          color: Color.fromRGBO(0, 112, 74, 1),
-                          textColor: Colors.white,
-                          child: Icon(
-                            Icons.add,
-                            size: 27,
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          item.title,
+                          style: TextStyle(
+                            color: Colors.brown.shade700,
+                            fontWeight: FontWeight.bold,
                           ),
-                          padding: EdgeInsets.all(7),
-                          shape: CircleBorder(),
                         ),
+                      ),
+                      SizedBox(
+                        height: 2,
+                      ),
+                      Stack(
+                        children: [
+                          // title
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 0, 2, 0),
+                            child: Text(
+                              "${item.desc.substring(0, 34)}..",
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontFamily: "assets/fonts/Lato-Regular.ttf",
+                                color: Colors.black54,
+                              ),
+                            ),
+                          ),
+                          //Rs. symbol
+                          Positioned(
+                            top: 30,
+                            left: 0,
+                            child: Container(
+                              child: Text(
+                                "\u{20B9}",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontFamily: "assets/fonts/Lato-Regular.ttf",
+                                  color: Colors.brown.shade700,
+                                ),
+                              ),
+                            ),
+                          ),
+                          //price text
+                          Positioned(
+                            top: 30,
+                            left: 12,
+                            child: Container(
+                              child: Text(
+                                "${item.price.toString()}",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.brown.shade700,
+                                ),
+                              ),
+                            ),
+                          ),
+                          //icon button
+                          Align(
+                            heightFactor: 1.2,
+                            alignment: AlignmentDirectional(1.3, 1.7),
+                            child: MaterialButton(
+                              elevation: 0,
+                              onPressed: () {
+                                HapticFeedback.lightImpact();
+                              },
+                              // color: Color.fromRGBO(0, 112, 74, 1),
+
+                              color: Colors.teal.shade800,
+                              textColor: Colors.white,
+                              child: Icon(
+                                Icons.add,
+                                size: 27,
+                              ),
+                              padding: EdgeInsets.all(7),
+                              shape: CircleBorder(),
+                            ),
+                          )
+                        ],
                       )
                     ],
-                  )
-                ],
+                  ),
+                ),
               ),
             ),
           ),
