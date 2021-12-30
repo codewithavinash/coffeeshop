@@ -1,6 +1,7 @@
 import 'package:coffee_shop/models/catalog.dart';
 import 'package:coffee_shop/screens/product_detail.dart';
 import 'package:coffee_shop/utils/page_routes.dart';
+import 'package:coffee_shop/widgets/bottom_appbar.dart';
 import 'package:coffee_shop/widgets/drawer.dart';
 // import 'package:coffee_shop/widgets/item_widget.dart';
 import 'package:flutter/material.dart';
@@ -57,12 +58,17 @@ class _HomeScreenState extends State<HomeScreen> {
             //       );
             //     },
             //   )
-            SafeArea(top: true, bottom: false, child: ItemsGridView())
+            SafeArea(
+                top: true,
+                bottom: false,
+                child: ItemsGridView(),
+              )
             : Center(
                 child: CircularProgressIndicator(),
               ),
       ),
       drawer: MyDrawer(),
+      bottomNavigationBar: DemoBottomAppBar(),
     );
   }
 }
@@ -93,9 +99,11 @@ class ItemsGridView extends StatelessWidget {
             child: InkWell(
               onTap: () {
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => ProductDetailScreen(item: item)));
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProductDetailScreen(item: item),
+                  ),
+                );
               },
               splashColor: Colors.teal,
               child: GridTile(

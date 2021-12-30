@@ -1,7 +1,7 @@
 class CatalogModel {
   static List<Item> items = [
     Item(
-      id: 1,
+      id: 0,
       title: "Americano",
       desc:
           "Caffè Americano is a type of coffee drink prepared by diluting an espresso with hot water, giving it a similar strength to, but different flavor from, traditionally brewed coffee.",
@@ -22,7 +22,7 @@ class Item {
   final String image;
 
   Item({
-    this.id = 1,
+    this.id = 0,
     this.title = "default title",
     this.desc = "default description",
     this.price = 120,

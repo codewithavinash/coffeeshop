@@ -31,11 +31,11 @@ class MyDrawer extends StatelessWidget {
             ),
             ListTile(
               leading: Icon(
-                Icons.home,
+                Icons.how_to_vote,
                 color: Colors.white,
               ),
               title: Text(
-                "Home",
+                "Cold Brew",
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
@@ -45,11 +45,11 @@ class MyDrawer extends StatelessWidget {
             ),
             ListTile(
               leading: Icon(
-                Icons.home,
+                Icons.local_drink_outlined,
                 color: Colors.white,
               ),
               title: Text(
-                "Home",
+                "Latte",
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
@@ -59,11 +59,11 @@ class MyDrawer extends StatelessWidget {
             ),
             ListTile(
               leading: Icon(
-                Icons.home,
+                Icons.hot_tub_sharp,
                 color: Colors.white,
               ),
               title: Text(
-                "Home",
+                "Hot Coffee",
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
