@@ -1,4 +1,5 @@
-import 'package:coffee_shop/provider/login.dart';
+import 'package:coffee_shop/screens/cart_screen.dart';
+import 'package:coffee_shop/screens/login.dart';
 import 'package:coffee_shop/utils/page_routes.dart';
 import 'package:coffee_shop/widgets/themes.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
       routes: {
         PageRoutes.loginRoute: (ctx) => Login(),
         PageRoutes.homeRoute: (ctx) => HomeScreen(),
+        PageRoutes.cartScreen: (ctx) => CartPage(),
       },
     );
   }

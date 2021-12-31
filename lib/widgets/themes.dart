@@ -13,9 +13,19 @@ class MyTheme {
         ),
       );
   static ThemeData darkTheme(BuildContext context) => ThemeData(
-        brightness: Brightness.dark,
+        fontFamily: GoogleFonts.poppins().fontFamily,
+        cardColor: Colors.black,
+        canvasColor: darkColor,
+        appBarTheme: AppBarTheme(
+          color: Colors.black,
+          elevation: 0.0,
+          iconTheme: IconThemeData(color: Colors.brown),
+          textTheme: Theme.of(context).textTheme,
+        ),
       );
 
   //Colors
   static Color creamColor = Color(0xfff5f5f5);
+  static Color darkColor = Colors.black87;
+  static Color lightColor = Colors.pink.shade200;
 }

@@ -3,6 +3,7 @@ import 'package:coffee_shop/screens/product_detail.dart';
 import 'package:coffee_shop/utils/page_routes.dart';
 import 'package:coffee_shop/widgets/bottom_appbar.dart';
 import 'package:coffee_shop/widgets/drawer.dart';
+import 'package:coffee_shop/widgets/themes.dart';
 // import 'package:coffee_shop/widgets/item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; //rootbundle (loading json file)
@@ -46,9 +47,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     // final dummyList = List.generate(11, (index) => CatalogModel.items[0]);
     return Scaffold(
+      backgroundColor: Theme.of(context).cardColor,
       body: Padding(
         padding: EdgeInsets.all(16.0),
-        child: (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
+        child: (CatalogModel.items != null && CatalogModel.items!.isNotEmpty)
             ?
             // ? ListView.builder(
             //     itemCount: CatalogModel.items.length,
@@ -85,9 +87,9 @@ class ItemsGridView extends StatelessWidget {
         crossAxisSpacing: 11,
         mainAxisExtent: 241,
       ),
-      itemCount: CatalogModel.items.length,
+      itemCount: CatalogModel.items!.length,
       itemBuilder: (context, index) {
-        final item = CatalogModel.items[index];
+        final item = CatalogModel.items![index];
         return InkWell(
           onTap: () {},
           splashColor: Colors.teal,

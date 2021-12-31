@@ -1,4 +1,5 @@
 import 'package:coffee_shop/models/catalog.dart';
+import 'package:coffee_shop/utils/page_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 
@@ -29,7 +30,9 @@ class ProductDetailScreen extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.fromLTRB(300, 10, 0, 0),
                   child: FloatingActionButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushNamed(PageRoutes.cartScreen);
+                    },
                     backgroundColor: Colors.teal,
                     child: Icon(Icons.shopping_cart),
                   ),
