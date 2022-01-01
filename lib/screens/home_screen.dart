@@ -90,7 +90,7 @@ class ItemsGridView extends StatelessWidget {
       itemCount: CatalogModel.items!.length,
       itemBuilder: (context, index) {
         // final item = CatalogModel.items![index];
-        final item = CatalogModel.getByPosition(index);
+        final item = CatalogModel.items![index];
         return InkWell(
           onTap: () {},
           splashColor: Colors.teal,
