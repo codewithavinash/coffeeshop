@@ -1,3 +1,4 @@
+import 'package:coffee_shop/models/cart.dart';
 import 'package:coffee_shop/widgets/themes.dart';
 import 'package:flutter/material.dart';
 
@@ -12,13 +13,15 @@ class CartPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         title: Text("Cart"),
       ),
-      body: Column(
-        children: [
-          // _CartList(),
-          Placeholder(),
-          Divider(),
-          _CartTotal(),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            _CartList(),
+            // Placeholder(),
+            Divider(),
+            _CartTotal(),
+          ],
+        ),
       ),
     );
   }
@@ -29,12 +32,14 @@ class _CartTotal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _cart = CartModel();
     return SizedBox(
       height: 200,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Text("\u{20B9} 700 "),
+          Text("\u{20B9} ${_cart.totalPrice} "),
+          //buy button
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               primary: Colors.brown.shade900,
@@ -65,19 +70,23 @@ class _CartList extends StatefulWidget {
 }
 
 class __CartListState extends State<_CartList> {
+  final _cart = CartModel(); //obj
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: 2,
-      itemBuilder: (context, index) => ListTile(
-        leading: Icon(Icons.done),
-        trailing: IconButton(
-          icon: Icon(Icons.remove),
-          onPressed: () {},
-        ),
-        title: Text(
-          "Test data",
-          style: TextStyle(color: Colors.black, fontSize: 25),
+    return SingleChildScrollView(
+      child: ListView.builder(
+        shrinkWrap: true,
+        itemCount: _cart.items!.length,
+        itemBuilder: (context, index) => ListTile(
+          leading: Icon(Icons.done),
+          trailing: IconButton(
+            icon: Icon(Icons.remove),
+            onPressed: () {},
+          ),
+          title: Text(
+            _cart.items![index].title,
+            style: TextStyle(color: Colors.black, fontSize: 25),
+          ),
         ),
       ),
     );

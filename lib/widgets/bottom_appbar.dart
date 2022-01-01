@@ -1,4 +1,5 @@
-import 'package:coffee_shop/widgets/drawer.dart';
+import 'package:coffee_shop/utils/page_routes.dart';
+// import 'package:coffee_shop/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
 class DemoBottomAppBar extends StatefulWidget {
@@ -41,7 +42,9 @@ class _DemoBottomAppBarState extends State<DemoBottomAppBar> {
             IconButton(
               tooltip: 'cart',
               icon: const Icon(Icons.shopping_bag),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed(PageRoutes.cartScreen);
+              },
             ),
           ],
         ),

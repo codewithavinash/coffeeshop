@@ -5,9 +5,7 @@ import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   final Item item;
-  const ProductDetailScreen({Key? key, required this.item})
-      : assert(item != null),
-        super(key: key);
+  const ProductDetailScreen({Key? key, required this.item}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +33,15 @@ class ProductDetailScreen extends StatelessWidget {
                     },
                     backgroundColor: Colors.teal,
                     child: Icon(Icons.shopping_cart),
+                  ),
+                ),
+                GestureDetector(
+                  child: Positioned(
+                    child: IconButton(
+                        onPressed: () => Navigator.pop(context),
+                        icon: Icon(Icons.arrow_back)),
+                    left: 10,
+                    top: 10,
                   ),
                 ),
               ],

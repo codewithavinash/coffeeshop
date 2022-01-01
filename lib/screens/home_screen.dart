@@ -1,15 +1,13 @@
+import 'package:coffee_shop/models/cart.dart';
 import 'package:coffee_shop/models/catalog.dart';
 import 'package:coffee_shop/screens/product_detail.dart';
-import 'package:coffee_shop/utils/page_routes.dart';
 import 'package:coffee_shop/widgets/bottom_appbar.dart';
 import 'package:coffee_shop/widgets/drawer.dart';
-import 'package:coffee_shop/widgets/themes.dart';
-// import 'package:coffee_shop/widgets/item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; //rootbundle (loading json file)
 import 'dart:convert';
 
-import 'package:google_fonts/google_fonts.dart'; //json decoding
+// import 'package:google_fonts/google_fonts.dart'; //json decoding
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -91,6 +89,8 @@ class ItemsGridView extends StatelessWidget {
       itemBuilder: (context, index) {
         // final item = CatalogModel.items![index];
         final item = CatalogModel.items![index];
+
+        Item? catalog;
         return InkWell(
           onTap: () {},
           splashColor: Colors.teal,
@@ -176,6 +176,7 @@ class ItemsGridView extends StatelessWidget {
                             ),
                           ),
                           //price text
+
                           Positioned(
                             top: 30,
                             left: 12,
@@ -189,27 +190,8 @@ class ItemsGridView extends StatelessWidget {
                               ),
                             ),
                           ),
-                          //icon button
-                          Align(
-                            heightFactor: 1.2,
-                            alignment: AlignmentDirectional(1.3, 1.7),
-                            child: MaterialButton(
-                              elevation: 0,
-                              onPressed: () {
-                                HapticFeedback.lightImpact();
-                              },
-                              // color: Color.fromRGBO(0, 112, 74, 1),
-
-                              color: Colors.teal.shade800,
-                              textColor: Colors.white,
-                              child: Icon(
-                                Icons.add,
-                                size: 27,
-                              ),
-                              padding: EdgeInsets.all(7),
-                              shape: CircleBorder(),
-                            ),
-                          )
+                          //catalog != final
+                          _AddToCart(catalog: catalog),
                         ],
                       )
                     ],
@@ -220,6 +202,46 @@ class ItemsGridView extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+}
+
+class _AddToCart extends StatelessWidget {
+  final Item? catalog;
+  const _AddToCart({Key? key, this.catalog}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final _catalog = CatalogModel();
+    final _cart = CartModel();
+
+    bool isAdded = false;
+    return Align(
+      //Icon Button
+      heightFactor: 1.2,
+      alignment: AlignmentDirectional(1.3, 1.7),
+      child: MaterialButton(
+        elevation: 0,
+        onPressed: () {
+          HapticFeedback.lightImpact();
+          isAdded = true;
+          // final _catalog = CatalogModel();
+          // final _cart = CartModel();
+          _cart.add(catalog!);
+          _cart.catalog = _catalog;
+        },
+        // color: Color.fromRGBO(0, 112, 74, 1),
+        color: Colors.teal.shade800,
+        textColor: Colors.white,
+        child: isAdded
+            ? Icon(Icons.done)
+            : Icon(
+                Icons.add,
+                size: 27,
+              ),
+        padding: EdgeInsets.all(7),
+        shape: CircleBorder(),
+      ),
     );
   }
 }
