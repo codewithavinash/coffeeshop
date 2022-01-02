@@ -212,10 +212,10 @@ class _AddToCart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _catalog = CatalogModel();
+    // final _catalog = CatalogModel();
     final _cart = CartModel();
 
-    bool isAdded = false;
+    bool isAdded = _cart.items!.contains(catalog) ?? false;
     return Align(
       //Icon Button
       heightFactor: 1.2,
@@ -223,12 +223,15 @@ class _AddToCart extends StatelessWidget {
       child: MaterialButton(
         elevation: 0,
         onPressed: () {
-          HapticFeedback.lightImpact();
-          isAdded = true;
-          // final _catalog = CatalogModel();
-          // final _cart = CartModel();
-          _cart.add(catalog!);
-          _cart.catalog = _catalog;
+          if (!isAdded) {
+            //not in cart then add it in cart
+            HapticFeedback.lightImpact();
+            isAdded = true;
+            final _catalog = CatalogModel();
+            final _cart = CartModel();
+            _cart.add(catalog!);
+            _cart.catalog = _catalog;
+          }
         },
         // color: Color.fromRGBO(0, 112, 74, 1),
         color: Colors.teal.shade800,

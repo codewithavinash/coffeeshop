@@ -73,22 +73,32 @@ class __CartListState extends State<_CartList> {
   final _cart = CartModel(); //obj
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: ListView.builder(
-        shrinkWrap: true,
-        itemCount: _cart.items!.length,
-        itemBuilder: (context, index) => ListTile(
-          leading: Icon(Icons.done),
-          trailing: IconButton(
-            icon: Icon(Icons.remove),
-            onPressed: () {},
-          ),
-          title: Text(
-            _cart.items![index].title,
-            style: TextStyle(color: Colors.black, fontSize: 25),
-          ),
-        ),
-      ),
-    );
+    return _cart.items!.isEmpty
+        ? Center(
+            child: Text("Add some coffee :)"),
+          )
+        : SingleChildScrollView(
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: _cart.items!.length,
+              itemBuilder: (context, index) => ListTile(
+                leading: Icon(Icons.done),
+                trailing: IconButton(
+                  //remove icon button
+                  icon: Icon(Icons.remove),
+                  onPressed: () {
+                    _cart.remove(
+                      _cart.items![index],
+                    );
+                    setState(() {});
+                  },
+                ),
+                title: Text(
+                  _cart.items![index].title,
+                  style: TextStyle(color: Colors.black, fontSize: 25),
+                ),
+              ),
+            ),
+          );
   }
 }
