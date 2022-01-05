@@ -215,7 +215,8 @@ class _AddToCart extends StatelessWidget {
     // final _catalog = CatalogModel();
     final _cart = CartModel();
 
-    bool isAdded = _cart.items!.contains(catalog) ?? false;
+    // bool isAdded = _cart.items!.contains(catalog) ?? false;
+    bool isAdded = false;
     return Align(
       //Icon Button
       heightFactor: 1.2,
